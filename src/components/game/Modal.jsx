@@ -1,19 +1,20 @@
 import React from 'react';
-import { useHistory } from 'react-router';
-import { scoreCritic } from '../utilities/ruleset';
+import { useNavigate } from 'react-router';
+import { scoreCritic } from '../utilities/rules.js';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 import { useWordList } from '../state/GameProvider';
 
 
+
 export default function createModal() {
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const { wordList } = useWordList();
 
   const handleClick = () => {
-    history.push('/');
+    navigate('/');
     window.location.reload();
   };
 

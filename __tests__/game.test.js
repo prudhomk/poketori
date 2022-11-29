@@ -31,7 +31,7 @@ describe('jpRuleCheck(string1, string2)', () => {
   });
 });
 
-describe('checkDictionary(string, category)', () => {
+describe('checkDictionary(string, dictionary)', () => {
   test('checks if word is in category dicitionary', () => {
     const x = 'bulbasaur';
     const y = 'agumon';

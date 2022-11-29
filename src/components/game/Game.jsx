@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router';
 import { useWord, useWordList, useDictionary, useLanguage } from '../state/GameProvider.jsx';
 import createModal from '../game/Modal';
 import Snackbar from '@mui/material/Snackbar';
 import Wordbank from './Wordbank';
 import { useInterval } from '../state/customHooks.js';
-import { ruleCheck, jpRuleCheck, checkDictionary, checkRepeats, checkTimer, remainingOptions } from '../utilities/ruleset.js';
+import { ruleCheck, jpRuleCheck, checkDictionary, checkRepeats, checkTimer, remainingOptions } from '../utilities/rules.js';
 import { Pokemon } from '../../data/pokemon.js';
 import { ポケモン } from '../../data/ポケモン.js';
 import styles from '../styles/Game.scss';
@@ -22,7 +22,7 @@ export default function Game() {
   const [toast, setToast] = useState(false);
   const [altToast, setAltToast] = useState(false);
   const [hint, setHint] = useState('?');
-  const history = useHistory();
+  const navigate = useNavigate();
 
 
   //Toast Handlers
@@ -64,15 +64,10 @@ export default function Game() {
 
   // const latestWord = wordList[wordList.length - 1];
 
-  switch(language) {
-    case 'en':
-      setDictionary(Pokemon);
-      break;
-    case 'jp':
-      setDictionary(ポケモン);
-      break;
-    default:
-      setDictionary(Pokemon);
+  if(language === 'en') {
+    setDictionary(Pokemon);
+  } else if(language === 'jp') {
+    setDictionary(ポケモン);
   }
 
   const handleCheck = () => {
@@ -107,7 +102,7 @@ export default function Game() {
   };
 
   const handleQuit = () => {
-    history.push('/');
+    navigate('/');
     window.location.reload();
   };
 
