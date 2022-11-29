@@ -22,8 +22,8 @@ export function jpRuleCheck(x, y) {
   }
 }
 
-export function checkDictionary(word, category) {
-  if(category.includes(word.toLowerCase())) {
+export function checkDictionary(word, dictionary) {
+  if(dictionary.includes(word.toLowerCase())) {
     return true;
   } else {
     console.log('Not an accepted word');
@@ -58,11 +58,11 @@ export function scoreCritic(wordList) {
   }
 }
 
-export function remainingOptions(wordList, category) {
+export function remainingOptions(wordList, dictionary) {
   const word = wordList.length - 1;
   const letter = wordList[word].charAt(wordList[word].length - 1);
   const usedWords = new Set(wordList);
-  const availableWords = category.filter(x => !usedWords.has(x));
+  const availableWords = dictionary.filter(x => !usedWords.has(x));
 
   const remainingWords = availableWords.filter(x => x.charAt(0) === letter);
 
