@@ -8,7 +8,7 @@ import { useWordList } from '../state/GameProvider';
 
 
 
-export default function createModal() {
+export default function Score() {
 
   const navigate = useNavigate();
   const { wordList } = useWordList();

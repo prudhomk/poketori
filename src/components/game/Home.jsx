@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import Header from './Header';
 import '../../i18n/config.js';
+import Pop from './Popover';
 import styles from '../styles/Main.scss';
 
 export default function Home() {
@@ -21,6 +22,8 @@ export default function Home() {
       <div className={styles.splash}>
         <h1>{t('title')}</h1>
         <button onClick={handleClick} data-cy="play">{t('home-button')}</button>
+
+        <Pop/>
       </div>
 
       {/* <div className={styles.version}>

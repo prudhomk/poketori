@@ -2,13 +2,16 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useWord, useWordList, useDictionary, useLanguage } from '../state/GameProvider.jsx';
-import createModal from '../game/Modal';
+// import Score from '../game/Modal';
+import Popover from '@mui/material/Popover';
+import Typography from '@mui/material/Typography';
 import Snackbar from '@mui/material/Snackbar';
 import Wordbank from './Wordbank';
 import { useInterval } from '../state/customHooks.js';
 import { ruleCheck, jpRuleCheck, checkDictionary, checkRepeats, checkTimer, remainingOptions } from '../utilities/rules.js';
 import { Pokemon } from '../../data/pokemon.js';
 import { ポケモン } from '../../data/ポケモン.js';
+
 import styles from '../styles/Game.scss';
 
 export default function Game() {
@@ -17,6 +20,8 @@ export default function Game() {
   const { wordList, setWordList } = useWordList();
   const { dictionary, setDictionary } = useDictionary();
   const { language } = useLanguage();
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const [count, setCount] = useState(30);
   const [alert, setAlert] = useState(false);
   const [toast, setToast] = useState(false);
@@ -60,15 +65,16 @@ export default function Game() {
     if(count === 0) {
       setAlert(true);
     }
-  });
+  }, [count]);
 
   // const latestWord = wordList[wordList.length - 1];
-
-  if(language === 'en') {
-    setDictionary(Pokemon);
-  } else if(language === 'jp') {
-    setDictionary(ポケモン);
-  }
+  useEffect(() => {
+    if(language === 'en') {
+      setDictionary(Pokemon);
+    } else if(language === 'jp') {
+      setDictionary(ポケモン);
+    }
+  });
 
   const handleCheck = () => {
     if(wordList.length >= 1 && ruleCheck(wordList[wordList.length - 1], word) && checkDictionary(word, dictionary) && checkRepeats(word, wordList) && !checkTimer(count)) {
@@ -101,6 +107,18 @@ export default function Game() {
     }
   };
 
+  const handlePopOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+    handleHint();
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
+  const handlePopClose = () => {
+    setAnchorEl(null);
+  };
+
   const handleQuit = () => {
     navigate('/');
     window.location.reload();
@@ -114,10 +132,7 @@ export default function Game() {
 
   return (
     <div className={styles.game}>
-      {alert ?
-        createModal()
-        : null
-      }
+
 
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
@@ -146,6 +161,23 @@ export default function Game() {
         }}
       />
 
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handlePopClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center'
+        }}
+      >
+        <Typography sx={{ p: 2 }}>There are {hint} words remaining</Typography>
+      </Popover>
+
       <div className={styles.words}>
         <span>{wordList[wordList.length - 1]}</span>
       </div>
@@ -156,7 +188,7 @@ export default function Game() {
       </form>
 
       <button className={styles.quit} onClick={handleQuit}>Give up</button>
-      <button className={styles.hintButton} onClick={handleHint}>There are {hint} words remaining</button>
+      <button className={styles.hintButton} onClick={handlePopOpen}>Need a Hint?</button>
 
       <div className={styles.timer}>
         <div className={styles.innerTimer}>
