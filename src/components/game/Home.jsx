@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLanguage } from '../state/GameProvider';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import Header from './Header';
@@ -7,7 +8,8 @@ import '../../i18n/config.js';
 import styles from '../styles/Main.scss';
 
 export default function Home() {
-
+  const [source, setSource] = useState('');
+  const { language } = useLanguage();
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -15,11 +17,19 @@ export default function Home() {
     navigate('/game');
   };
 
+  useEffect(() => {
+    if(language === 'en') {
+      setSource('en.png');
+    } else if(language === 'jp') {
+      setSource('jp.png');
+    }
+  }, [language]);
+
   return (
     <>
       <Header/>
       <div className={styles.splash}>
-        <h1>{t('title')}</h1>
+        <img src={source}/>
         <button onClick={handleClick} data-cy="play">{t('home-button')}</button>
       </div>
 

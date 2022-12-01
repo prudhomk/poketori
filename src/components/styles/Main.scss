@@ -21,14 +21,11 @@ body, html {
   align-items: center;
   justify-content: center;
 
-
   h1 {
-    color: rgb(240, 230, 173);
+    color: yellow;
     padding: 10px;
-    font-family: 'Acme', sans-serif;
     font-size: 100px;
-    text-shadow: 8px 5px rgb(54, 28, 3);
-    border: 10px dotted rgb(240, 230, 173);
+    text-shadow: 8px 5px dark blue($color: #000000);
   }
 
   p {

@@ -179,7 +179,9 @@ export default function Game() {
       </Popover>
 
       <div className={styles.words}>
-        <span>{wordList[wordList.length - 1]}</span>
+        <span className={styles.top}>A wild</span>
+        <span className={styles.currentWord}>{wordList[wordList.length - 1]}</span>
+        <span className={styles.bottom}>appears!</span>
       </div>
 
       <form onSubmit={handleSubmit} id="player-one">
