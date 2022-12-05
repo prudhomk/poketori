@@ -1,12 +1,11 @@
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router';
-import { useWord, useWordList, useDictionary, useLanguage } from '../state/GameProvider.jsx';
-// import Score from '../game/Modal';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import Snackbar from '@mui/material/Snackbar';
 import Wordbank from './Wordbank';
+import { useNavigate } from 'react-router';
+import { useWord, useWordList, useDictionary, useLanguage } from '../state/GameProvider.jsx';
 import { useInterval } from '../state/customHooks.js';
 import { ruleCheck, jpRuleCheck, checkDictionary, checkRepeats, checkTimer, remainingOptions } from '../utilities/rules.js';
 import { Pokemon } from '../../data/pokemon.js';
@@ -20,10 +19,8 @@ export default function Game() {
   const { wordList, setWordList } = useWordList();
   const { dictionary, setDictionary } = useDictionary();
   const { language } = useLanguage();
-
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [count, setCount] = useState(30);
-  const [alert, setAlert] = useState(false);
   const [toast, setToast] = useState(false);
   const [altToast, setAltToast] = useState(false);
   const [hint, setHint] = useState('?');
@@ -63,9 +60,9 @@ export default function Game() {
 
   useEffect(() => {
     if(count === 0) {
-      setAlert(true);
+      navigate('/result');
     }
-  }, [count]);
+  });
 
   // const latestWord = wordList[wordList.length - 1];
   useEffect(() => {
@@ -132,7 +129,6 @@ export default function Game() {
 
   return (
     <div className={styles.game}>
-
 
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}

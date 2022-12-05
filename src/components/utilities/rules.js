@@ -50,11 +50,13 @@ export function checkTimer(count) {
 
 export function scoreCritic(wordList) {
   if(wordList.length < 5) {
-    return 'Mediocre!';
+    return 'Rank: Bug-Catcher.  Stick to Route 1 kid!';
   } else if(5 < wordList.length < 15) {
-    return 'Impressive!';
+    return 'Rank: Pokemon Trainer.  Not bad, keep at it!';
   } else if(15 < wordList.length) {
-    return 'Amazing!';
+    return 'Rank: Gym Leader.  You\'ve definitely done some battling!';
+  } else if(20 < wordList.length) {
+    return 'Rank: Pokemon Professor.  You know your Pokemon!';
   }
 }
 
