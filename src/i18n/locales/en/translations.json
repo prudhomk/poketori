@@ -1,4 +1,10 @@
 {
   "title": "Poketori",
-  "home-button": "Play"
+  "home-button": "Play",
+  "hint": "There are",
+  "hint2": "pokemon remaining.",
+  "hint-button": "Need a hint?",
+  "message": "A wild",
+  "message2": "appears!",
+  "forfeit": "Give up"
 }
