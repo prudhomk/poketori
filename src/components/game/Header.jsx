@@ -24,6 +24,12 @@ export default function Header() {
         }}>
         EN
         </button>
+        <button onClick={() => {
+          i18n.changeLanguage('fr');
+          setLanguage('fr');
+        }}>
+        FR
+        </button>
       </div>
     </>
   );

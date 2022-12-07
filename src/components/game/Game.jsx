@@ -7,10 +7,12 @@ import Wordbank from './Wordbank';
 import { useNavigate } from 'react-router';
 import { useWord, useWordList, useDictionary, useLanguage } from '../state/GameProvider.jsx';
 import { useInterval } from '../state/customHooks.js';
+import { useTranslation } from 'react-i18next';
 import { ruleCheck, jpRuleCheck, checkDictionary, checkRepeats, checkTimer, remainingOptions } from '../utilities/rules.js';
 import { Pokemon } from '../../data/pokemon.js';
 import { ポケモン } from '../../data/ポケモン.js';
-
+import { french } from '../../data/pokemonRude.js';
+import '../../i18n/config.js';
 import styles from '../styles/Game.scss';
 
 export default function Game() {
@@ -19,6 +21,7 @@ export default function Game() {
   const { wordList, setWordList } = useWordList();
   const { dictionary, setDictionary } = useDictionary();
   const { language } = useLanguage();
+  const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [count, setCount] = useState(30);
   const [toast, setToast] = useState(false);
@@ -70,6 +73,8 @@ export default function Game() {
       setDictionary(Pokemon);
     } else if(language === 'jp') {
       setDictionary(ポケモン);
+    } else if(language === 'fr') {
+      setDictionary(french);
     }
   });
 
@@ -171,13 +176,13 @@ export default function Game() {
           horizontal: 'center'
         }}
       >
-        <Typography sx={{ p: 2 }}>There are {hint} words remaining</Typography>
+        <Typography sx={{ p: 2 }} data-cy="hint-message">{t('hint')} {hint} {t('hint2')}</Typography>
       </Popover>
 
       <div className={styles.words}>
-        <span className={styles.top}>A wild</span>
+        <span className={styles.top} data-cy="A wild">{t('message')}</span>
         <span className={styles.currentWord}>{wordList[wordList.length - 1]}</span>
-        <span className={styles.bottom}>appears!</span>
+        <span className={styles.bottom} data-cy="appears!">{t('message2')}</span>
       </div>
 
       <form onSubmit={handleSubmit} id="player-one">
@@ -185,8 +190,8 @@ export default function Game() {
         <button className={styles.submitButton}></button>
       </form>
 
-      <button className={styles.quit} onClick={handleQuit}>Give up</button>
-      <button className={styles.hintButton} onClick={handlePopOpen}>Need a Hint?</button>
+      <button className={styles.quit} onClick={handleQuit} data-cy="Give up">{t('forfeit')}</button>
+      <button className={styles.hintButton} onClick={handlePopOpen} data-cy="hint">{t('hint-button')}</button>
 
       <div className={styles.timer}>
         <div className={styles.innerTimer}>

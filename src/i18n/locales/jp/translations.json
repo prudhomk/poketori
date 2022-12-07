@@ -1,4 +1,10 @@
 {
   "title": "ポケトリ",
-  "home-button": "スタート"
+  "home-button": "スタート",
+  "hint": "残り",
+  "hint2": "匹のポケモン。",
+  "hint-button": "ヒント",
+  "message": "あ! やせいの",
+  "message2": "が　とびだしてきた！",
+  "forfeit": "諦める"
 }
