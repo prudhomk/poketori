@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router';
 import { useWord, useWordList, useDictionary, useLanguage } from '../state/GameProvider.jsx';
 import { useInterval } from '../state/customHooks.js';
 import { useTranslation } from 'react-i18next';
-import { ruleCheck, jpRuleCheck, checkDictionary, checkRepeats, checkTimer, remainingOptions } from '../utilities/rules.js';
+import { ruleCheck, jpRuleCheck, jpLoss, checkDictionary, checkRepeats, checkTimer, remainingOptions } from '../utilities/rules.js';
 import { Pokemon } from '../../data/pokemon.js';
 import { ポケモン } from '../../data/ポケモン.js';
 import { french } from '../../data/pokemonRude.js';
@@ -89,13 +89,16 @@ export default function Game() {
       handleAltOpen();
 
     } else if(language === 'jp') {
+      if(jpLoss(word)) {
+        navigate('/result');
+      }
       if(wordList.length >= 1 && jpRuleCheck(wordList[wordList.length - 1], word) && checkDictionary(word, dictionary) && checkRepeats(word, wordList) && !checkTimer(count)) {
         setWordList(prevState => [...prevState, word]);
         setCount(30);
       } else if(wordList.length < 1 && checkDictionary(word, dictionary) && !checkTimer(count)) {
         setWordList([word]);
         setCount(30);
-      }  else if(!checkRepeats(word, wordList)) {
+      } else if(!checkRepeats(word, wordList)) {
         handleAltOpen();
       }
     } else {

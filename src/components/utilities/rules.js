@@ -22,6 +22,15 @@ export function jpRuleCheck(x, y) {
   }
 }
 
+export function jpLoss(n) {
+  const letter = wanakana.toHiragana(n.charAt(n.length - 1));
+  if(letter === 'ん' || letter === 'ン') {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 export function checkDictionary(word, dictionary) {
   if(dictionary.includes(word.toLowerCase())) {
     return true;

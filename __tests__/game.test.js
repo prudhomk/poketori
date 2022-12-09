@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { ruleCheck, jpRuleCheck, checkDictionary, checkRepeats, checkTimer, remainingOptions } from '../src/components/utilities/rules.js';
+import { ruleCheck, jpRuleCheck, jpLoss, checkDictionary, checkRepeats, checkTimer, remainingOptions } from '../src/components/utilities/rules.js';
 import { Pokemon } from '../src/data/pokemon.js';
 import * as wanakana from 'wanakana';
 
@@ -87,9 +87,9 @@ describe('checks if there are any words available', () => {
     const words3 = ['treeko', 'omastar', 'rapidash'];
 
 
-    expect(remainingOptions(words, Pokemon)).toEqual(30);
-    expect(remainingOptions(words2, Pokemon)).toEqual(40);
-    expect(remainingOptions(words3, Pokemon)).toEqual(32);
+    expect(remainingOptions(words, Pokemon)).toEqual(39);
+    expect(remainingOptions(words2, Pokemon)).toEqual(44);
+    expect(remainingOptions(words3, Pokemon)).toEqual(33);
   });
 });
 
@@ -104,5 +104,17 @@ describe('testing character matching for jp', () => {
 
     expect(ruleCheck(x2, b)).toEqual(true);
     expect(ruleCheck(x, b2)).toEqual(true);
+  });
+});
+
+describe('testing jp game loss condition on n character', () => {
+  test('check if word triggers loss condition', () => {
+    const x = 'ピカチュウ';
+    const y = 'あかん';
+    const z = 'リザルドン';
+
+    expect(jpLoss(x)).toEqual(false);
+    expect(jpLoss(y)).toEqual(true);
+    expect(jpLoss(z)).toEqual(true);
   });
 });
