@@ -193,9 +193,9 @@ export default function Game() {
       <button className={styles.quit} onClick={handleQuit} data-cy="Give up">{t('forfeit')}</button>
       <button className={styles.hintButton} onClick={handlePopOpen} data-cy="hint">{t('hint-button')}</button>
 
-      <div className={styles.timer}>
+      <div className={`${styles.timer} ${styles.rock}`}>
         <div className={styles.innerTimer}>
-          <span className={styles.jello}>{count}</span>
+          <span>{count}</span>
         </div>
       </div>
 
