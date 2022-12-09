@@ -18,13 +18,15 @@ export default function Result() {
   return (
     <>
       <div className={styles.result}>
-        <h1>Game Over</h1>
-        {scoreCritic(wordList)}
-        <h3>Number of Pokemon encountered: {wordList.length}</h3>
+        <div>
+          <h1>Game Over</h1>
+          {scoreCritic(wordList)}
+          <h3>Number of Pokemon encountered: {wordList.length}</h3>
 
-        <button onClick={handleClick}>
-          Play another round!
-        </button>
+          <button onClick={handleClick}>
+            Play another round!
+          </button>
+        </div>
       </div>
     </>
   );
