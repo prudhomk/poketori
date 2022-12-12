@@ -1,6 +1,4 @@
 /* eslint-disable max-len */
-import * as wanakana from 'wanakana';
-
 export function ruleCheck(x, y) {
   if(y.charAt(0).toLowerCase() !== x.charAt(x.length - 1).toLowerCase()) {
     return false;
@@ -11,11 +9,11 @@ export function ruleCheck(x, y) {
 
 //Consider that 'キュ' equates to 'ユ' based on current ruleset
 export function jpRuleCheck(x, y) {
-  let letter = wanakana.toHiragana(x.charAt(x.length - 1));
+  let letter = x.charAt(x.length - 1);
   if(letter === 'ー') {
-    letter = wanakana.toHiragana(x.charAt(x.length - 2));
+    letter = x.charAt(x.length - 2);
   }
-  if(wanakana.toHiragana(y.charAt(0)) !== letter) {
+  if(y.charAt(0) !== letter) {
     return false;
   } else {
     return true;
@@ -23,8 +21,8 @@ export function jpRuleCheck(x, y) {
 }
 
 export function jpLoss(n) {
-  const letter = wanakana.toHiragana(n.charAt(n.length - 1));
-  if(letter === 'ん' || letter === 'ン') {
+  const letter = n.charAt(n.length - 1);
+  if(letter === 'ン') {
     return true;
   } else {
     return false;

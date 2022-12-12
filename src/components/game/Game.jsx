@@ -20,7 +20,7 @@ export default function Game() {
   const { word, setWord } = useWord();
   const { wordList, setWordList } = useWordList();
   const { dictionary, setDictionary } = useDictionary();
-  const { language } = useLanguage();
+  const { language, setLanguage } = useLanguage();
   const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [count, setCount] = useState(30);
@@ -66,6 +66,7 @@ export default function Game() {
       navigate('/result');
     }
   });
+
 
   // const latestWord = wordList[wordList.length - 1];
   useEffect(() => {
@@ -189,7 +190,7 @@ export default function Game() {
       </div>
 
       <form onSubmit={handleSubmit} id="player-one">
-        <input onChange={(e) => setWord(e.target.value)} placeholder="Enter a Word"></input>
+        <input onChange={(e) => setWord(e.target.value)} placeholder={t('prompt')}></input>
         <button className={styles.submitButton}></button>
       </form>
 
