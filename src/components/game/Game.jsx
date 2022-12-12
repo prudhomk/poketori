@@ -20,7 +20,7 @@ export default function Game() {
   const { word, setWord } = useWord();
   const { wordList, setWordList } = useWordList();
   const { dictionary, setDictionary } = useDictionary();
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
   const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [count, setCount] = useState(30);
