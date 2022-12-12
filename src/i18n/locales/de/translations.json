@@ -1,11 +1,11 @@
 {
   "title": "Poketori",
-  "home-button": "Play",
-  "hint": "There are",
-  "hint2": "pokemon remaining.",
-  "hint-button": "Need a hint?",
-  "message": "A wild",
-  "message2": "appears!",
-  "forfeit": "Give up",
-  "prompt": "Enter a Pokemon"
+  "home-button": "Spielen",
+  "hint": "Es sind",
+  "hint2": "Pokemon übrig.",
+  "hint-button": "Brauchen Sie einen Tipp?",
+  "message": "Ein wildes",
+  "message2": "erscheint!",
+  "forfeit": "Aufgeben",
+  "prompt": "Ein Pokemon eingeben"
 }

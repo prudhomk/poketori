@@ -1,11 +1,11 @@
 {
   "title": "Poketori",
   "home-button": "Jouer",
-  "hint": "There are",
-  "hint2": "pokemon remaining.",
-  "hint-button": "Need a hint?",
-  "message": "A wild",
-  "message2": "appears!",
-  "forfeit": "Give up",
-  "prompt": "Enter a Pokemon"
+  "hint": "Il reste",
+  "hint2": "pokémons.",
+  "hint-button": "Besoin d'un indice ?",
+  "message": "Un",
+  "message2": "sauvage apparaît !",
+  "forfeit": "Abandonner",
+  "prompt": "Entrez un Pokemon"
 }

@@ -1,11 +1,11 @@
 {
   "title": "Poketori",
   "home-button": "시작",
-  "hint": "There are",
-  "hint2": "pokemon remaining.",
-  "hint-button": "Need a hint?",
-  "message": "A wild",
-  "message2": "appears!",
-  "forfeit": "Give up",
-  "prompt": "Enter a Pokemon"
+  "hint": "남은 포켓몬은",
+  "hint2": "마리.",
+  "hint-button": "힌트가 필요하세요?",
+  "message": "야생의",
+  "message2": "나타난다!",
+  "forfeit": "포기하다",
+  "prompt": "포켓몬을 입력하세요"
 }
