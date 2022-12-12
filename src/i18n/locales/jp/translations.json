@@ -6,5 +6,10 @@
   "hint-button": "ヒント",
   "message": "あ! やせいの",
   "message2": "が　とびだしてきた！",
-  "forfeit": "諦める"
+  "forfeit": "諦める",
+  "prompt": "ポケモンを挙げる",
+  "game-over": "ゲームオーバー",
+  "pokemon-number": "遭遇したポケモン：",
+  "pokemon-number2": "匹.",
+  "play-again": "もう一度プレイ"
 }

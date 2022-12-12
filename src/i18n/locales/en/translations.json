@@ -6,5 +6,10 @@
   "hint-button": "Need a hint?",
   "message": "A wild",
   "message2": "appears!",
-  "forfeit": "Give up"
+  "forfeit": "Give up",
+  "prompt": "Enter a Pokemon",
+  "game-over": "Game Over",
+  "pokemon-number": "Number of Pokemon encountered: ",
+  "pokemon-number2": ".",
+  "play-again": "Play another round!"
 }

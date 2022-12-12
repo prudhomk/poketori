@@ -9,6 +9,13 @@ export default function Header() {
   const { i18n } = useTranslation();
   const { setLanguage } = useLanguage();
 
+
+
+  // useEffect(() => {
+  //   const selection = JSON.stringify(language);
+  //   localStorage.setItem('language', selection);
+  // }, [language]);
+
   return (
     <>
       <div className={styles.localize}>
@@ -22,13 +29,25 @@ export default function Header() {
           i18n.changeLanguage('en');
           setLanguage('en');
         }}>
-        EN
+        English
         </button>
         <button onClick={() => {
           i18n.changeLanguage('fr');
           setLanguage('fr');
         }}>
-        FR
+        French
+        </button>
+        <button onClick={() => {
+          i18n.changeLanguage('kr');
+          setLanguage('kr');
+        }}>
+        한국인
+        </button>
+        <button onClick={() => {
+          i18n.changeLanguage('de');
+          setLanguage('de');
+        }}>
+        German
         </button>
       </div>
     </>

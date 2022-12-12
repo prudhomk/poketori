@@ -22,6 +22,12 @@ export default function Home() {
       setSource('en.png');
     } else if(language === 'jp') {
       setSource('jp.png');
+    } else if(language === 'fr') {
+      setSource('fr.png');
+    } else if(language === 'de') {
+      setSource('de.png');
+    } else if(language === 'kr') {
+      setSource('kr.png');
     }
   }, [language]);
 

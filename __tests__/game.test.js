@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
-import { ruleCheck, jpRuleCheck, checkDictionary, checkRepeats, checkTimer, remainingOptions } from '../src/components/utilities/rules.js';
+import { ruleCheck, jpRuleCheck, jpLoss, checkDictionary, checkRepeats, checkTimer, remainingOptions } from '../src/components/utilities/rules.js';
 import { Pokemon } from '../src/data/pokemon.js';
-import * as wanakana from 'wanakana';
 
 //re-write to specify pokemon, no need for dictionary function
 
@@ -18,13 +17,9 @@ describe('ruleCheck(string1, string2)', () => {
 
 describe('jpRuleCheck(string1, string2)', () => {
   test('checks if first letter matches last letter, edge case for extended characters', () => {
-    const w = 'ピカチュ';
     const x = 'ラクダ';
     const y = 'ダルマー';
     const z = 'マカロニ';
-
-    console.log(w.charAt(w.length - 1));
-
     expect(jpRuleCheck(x, y)).toEqual(true);
     expect(jpRuleCheck(y, z)).toEqual(true);
     expect(jpRuleCheck(x, z)).toEqual(false);
@@ -68,7 +63,7 @@ describe('simulates a game: check if word is in dictionary, add to state, check 
     const gameArr = ['charmander'];
     const words = ['egg', 'rockruff', 'butterfree', 'squirtle'];
     for(let i = 0; i < words.length; i++) {
-      console.log(words[i]);
+
       if(ruleCheck(gameArr[0], words[i]) && checkDictionary(words[i], Pokemon) && checkRepeats(words[i], gameArr)) {
         gameArr.push(words[i]);
       } else {
@@ -87,22 +82,20 @@ describe('checks if there are any words available', () => {
     const words3 = ['treeko', 'omastar', 'rapidash'];
 
 
-    expect(remainingOptions(words, Pokemon)).toEqual(30);
-    expect(remainingOptions(words2, Pokemon)).toEqual(40);
-    expect(remainingOptions(words3, Pokemon)).toEqual(32);
+    expect(remainingOptions(words, Pokemon)).toEqual(39);
+    expect(remainingOptions(words2, Pokemon)).toEqual(44);
+    expect(remainingOptions(words3, Pokemon)).toEqual(33);
   });
 });
 
-describe('testing character matching for jp', () => {
-  test('check if katakana matches hiragana', () => {
-    const x = 'りんご';
-    const y = 'ごりら';
-    const a = 'リンゴ';
-    const b = 'ゴリラ';
-    const x2 = wanakana.toKatakana(x);
-    const b2 = wanakana.toHiragana(b);
+describe('testing jp game loss condition on n character', () => {
+  test('check if word triggers loss condition', () => {
+    const x = 'ピカチュウ';
+    const y = 'アカン';
+    const z = 'リザルドン';
 
-    expect(ruleCheck(x2, b)).toEqual(true);
-    expect(ruleCheck(x, b2)).toEqual(true);
+    expect(jpLoss(x)).toEqual(false);
+    expect(jpLoss(y)).toEqual(true);
+    expect(jpLoss(z)).toEqual(true);
   });
 });

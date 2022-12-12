@@ -1,0 +1,15 @@
+{
+  "title": "Poketori",
+  "home-button": "Spielen",
+  "hint": "Es sind",
+  "hint2": "Pokemon übrig.",
+  "hint-button": "Brauchen Sie einen Tipp?",
+  "message": "Ein wildes",
+  "message2": "erscheint!",
+  "forfeit": "Aufgeben",
+  "prompt": "Ein Pokemon eingeben",
+  "game-over": "Game Over",
+  "pokemon-number": "Anzahl der angetroffenen Pokemon:",
+  "pokemon-number2": ".",
+  "play-again": "Erneut spielen"
+}
