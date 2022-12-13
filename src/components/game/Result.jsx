@@ -23,7 +23,7 @@ export default function Result() {
     <>
       <div className={styles.result}>
         <div>
-          <h1 data-cy="Game Over">{t('game-over')}Game Over</h1>
+          <h1 data-cy="Game Over">{t('game-over')}</h1>
           {scoreCritic(wordList)}
           <h3 data-cy="Pokemon encountered">{t('pokemon-number')}{wordList.length}{t('pokemon-number2')}</h3>
 

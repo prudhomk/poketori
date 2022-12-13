@@ -9,7 +9,7 @@
   "forfeit": "Aufgeben",
   "prompt": "Ein Pokemon eingeben",
   "game-over": "Game Over",
-  "pokemon-number": "Anzahl der angetroffenen Pokemon:",
+  "pokemon-number": "Anzahl der angetroffenen Pokemon: ",
   "pokemon-number2": ".",
   "play-again": "Erneut spielen"
 }
