@@ -12,6 +12,8 @@ import { ruleCheck, jpRuleCheck, jpLoss, checkDictionary, checkRepeats, checkTim
 import { Pokemon } from '../../data/pokemon.js';
 import { ポケモン } from '../../data/ポケモン.js';
 import { french } from '../../data/pokemonRude.js';
+import { deutch } from '../../data/deutchmon.js';
+import { 포켓몬을 } from '../../data/포켓몬을.js';
 import '../../i18n/config.js';
 import styles from '../styles/Game.scss';
 
@@ -76,6 +78,10 @@ export default function Game() {
       setDictionary(ポケモン);
     } else if(language === 'fr') {
       setDictionary(french);
+    } else if(language === 'de') {
+      setDictionary(deutch);
+    } else if(language === 'kr') {
+      setDictionary(포켓몬을);
     }
   });
 
