@@ -667,7 +667,7 @@ export const Pokemon = [
   'vivillon',
   'litleo',
   'pyroar',
-  'flabebe',
+  'flabébé',
   'floette',
   'florges',
   'skiddo',
