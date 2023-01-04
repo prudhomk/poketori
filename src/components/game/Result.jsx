@@ -15,7 +15,7 @@ export default function Result() {
   const { t } = useTranslation();
 
   const handleClick = () => {
-    navigate('/game');
+    navigate('/');
     window.location.reload();
   };
 
