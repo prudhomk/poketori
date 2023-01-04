@@ -7,6 +7,12 @@ export function ruleCheck(x, y) {
   }
 }
 
+export function euroRuleCheck(x, y) {
+  const a = x.normalize('NFD').replace(/\p{Diacritic}/gu, '');
+  const b = y.normalize('NFD').replace(/\p{Diacritic}/gu, '');
+  return ruleCheck(a, b);
+}
+
 //Consider that 'キュ' equates to 'ユ' based on current ruleset
 export function jpRuleCheck(x, y) {
   let letter = x.charAt(x.length - 1);
@@ -20,6 +26,7 @@ export function jpRuleCheck(x, y) {
   }
 }
 
+//works within test, not within game
 export function jpLoss(n) {
   const letter = n.charAt(n.length - 1);
   if(letter === 'ン') {
@@ -55,6 +62,7 @@ export function checkTimer(count) {
   }
 }
 
+//need to figure out how to translate across language options
 export function scoreCritic(wordList) {
   if(wordList.length < 5) {
     return 'Rank: Bug-Catcher.  Stick to Route 1 kid!';
