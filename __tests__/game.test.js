@@ -1,6 +1,10 @@
 /* eslint-disable max-len */
-import { ruleCheck, jpRuleCheck, jpLoss, checkDictionary, checkRepeats, checkTimer, remainingOptions } from '../src/components/utilities/rules.js';
+import { ruleCheck, euroRuleCheck, jpRuleCheck, jpLoss, checkDictionary, checkRepeats, checkTimer, remainingOptions } from '../src/components/utilities/rules.js';
 import { Pokemon } from '../src/data/pokemon.js';
+import { ポケモン } from '../src/data/ポケモン.js';
+import { french } from '../src/data/pokemonRude.js';
+import { deutch } from '../src/data/deutchmon.js';
+import { 포켓몬을 } from '../src/data/포켓몬을.js';
 
 //re-write to specify pokemon, no need for dictionary function
 
@@ -11,6 +15,17 @@ describe('ruleCheck(string1, string2)', () => {
     const z = 'mewtwo';
     expect(ruleCheck(x, y)).toEqual(true);
     expect(ruleCheck(x, z)).toEqual(false);
+  });
+
+});
+
+describe('euroRuleCheck(string1, string2)', () => {
+  test('checks if first letter matches last letter', () => {
+    const x = 'bébécaille';
+    const y = 'écaïd';
+    const z = 'mewtwo';
+    expect(euroRuleCheck(x, y)).toEqual(true);
+    expect(euroRuleCheck(x, z)).toEqual(false);
   });
 
 });
@@ -34,6 +49,39 @@ describe('checkDictionary(string, dictionary)', () => {
     expect(checkDictionary(x, Pokemon)).toEqual(true);
     expect(checkDictionary(y, Pokemon)).toEqual(false);
     expect(checkDictionary(z, Pokemon)).toEqual(true);
+  });
+});
+
+describe('checkJP', () => {
+  test('checks if jp dictinary works', () => {
+    const x = 'ピカチュウ';
+    const y = 'bulbasaur';
+    const z = 'ズガドーン';
+    expect(checkDictionary(x, ポケモン)).toEqual(true);
+    expect(checkDictionary(y, ポケモン)).toEqual(false);
+    expect(checkDictionary(z, ポケモン)).toEqual(true);
+  });
+});
+
+describe('checkFR', () => {
+  test('checks if french dictinary works', () => {
+    const x = 'meowth';
+    const y = 'salamèche';
+    const z = 'pikachu';
+    expect(checkDictionary(x, french)).toEqual(false);
+    expect(checkDictionary(y, french)).toEqual(true);
+    expect(checkDictionary(z, french)).toEqual(true);
+  });
+});
+
+describe('checkDE', () => {
+  test('checks if deutch dictinary works', () => {
+    const x = 'schiggy';
+    const y = 'smogmog';
+    const z = 'beedrill';
+    expect(checkDictionary(x, deutch)).toEqual(true);
+    expect(checkDictionary(y, deutch)).toEqual(true);
+    expect(checkDictionary(z, deutch)).toEqual(false);
   });
 });
 
