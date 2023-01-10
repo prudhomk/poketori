@@ -1,1 +1,2 @@
-# poketori
+# Poketori
+Poketori is a web version of the game しりとり (shiritori), also known as word-chain in other parts of the world.  The premise is simple: you chain together words based on the last letter of the previous word.  Example: apple => elephant => tree.  Poketori makes things more difficult by only allowing Pokemon to be used.  All current Pokemon are included, and there are five language options available (each with corresponding language specific Pokemon dictionaries): English, Japanese, German, French, and Korean.  
