@@ -29,11 +29,8 @@ export function jpRuleCheck(x, y) {
 //works within test, not within game
 export function jpLoss(n) {
   const letter = n.charAt(n.length - 1);
-  if(letter === 'ン') {
-    return true;
-  } else {
-    return false;
-  }
+  console.log(letter);
+  return (letter === 'ン');
 }
 
 export function checkDictionary(word, dictionary) {

@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../state/GameProvider';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
-import Header from './Header';
 import '../../i18n/config.js';
 import styles from '../styles/Main.scss';
+import Dropdown from './Dropdown';
 
 export default function Home() {
   const [source, setSource] = useState('');
@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <>
-      <Header/>
+      <Dropdown/>
       <div className={styles.splash}>
         <img src={source}/>
         <button onClick={handleClick} data-cy="play">{t('home-button')}</button>

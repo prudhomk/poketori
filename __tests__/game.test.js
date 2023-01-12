@@ -64,7 +64,7 @@ describe('checkJP', () => {
 });
 
 describe('checkFR', () => {
-  test('checks if french dictinary works', () => {
+  test('checks if french dictionary works', () => {
     const x = 'meowth';
     const y = 'salamèche';
     const z = 'pikachu';
@@ -75,13 +75,24 @@ describe('checkFR', () => {
 });
 
 describe('checkDE', () => {
-  test('checks if deutch dictinary works', () => {
+  test('checks if deutch dictionary works', () => {
     const x = 'schiggy';
     const y = 'smogmog';
     const z = 'beedrill';
     expect(checkDictionary(x, deutch)).toEqual(true);
     expect(checkDictionary(y, deutch)).toEqual(true);
     expect(checkDictionary(z, deutch)).toEqual(false);
+  });
+});
+
+describe('checkKR', () => {
+  test('checks if korean dictionary works', () => {
+    const x = '두드리짱';
+    const y = 'ピカチュウ';
+    const z = '구구';
+    expect(checkDictionary(x, 포켓몬을)).toEqual(true);
+    expect(checkDictionary(y, 포켓몬을)).toEqual(false);
+    expect(checkDictionary(z, 포켓몬을)).toEqual(true);
   });
 });
 
