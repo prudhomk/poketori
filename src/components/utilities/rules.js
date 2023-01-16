@@ -29,7 +29,6 @@ export function jpRuleCheck(x, y) {
 //works within test, not within game
 export function jpLoss(n) {
   const letter = n.charAt(n.length - 1);
-  console.log(letter);
   return (letter === 'ン');
 }
 
@@ -37,7 +36,6 @@ export function checkDictionary(word, dictionary) {
   if(dictionary.includes(word.toLowerCase())) {
     return true;
   } else {
-    console.log('Not an accepted word');
     return false;
   }
 }
@@ -46,7 +44,6 @@ export function checkRepeats(word, wordList) {
   if(!wordList.includes(word)) {
     return true;
   } else {
-    console.log('Word has already been said, try again');
     return false;
   }
 }
@@ -60,15 +57,16 @@ export function checkTimer(count) {
 }
 
 //need to figure out how to translate across language options
+//instead of phrases, use image (either pokemon, trainers, or medals)
 export function scoreCritic(wordList) {
   if(wordList.length < 5) {
-    return 'Rank: Bug-Catcher.  Stick to Route 1 kid!';
+    return 'Rank: F';
   } else if(5 < wordList.length < 15) {
-    return 'Rank: Pokemon Trainer.  Not bad, keep at it!';
+    return 'Rank: C';
   } else if(15 < wordList.length) {
-    return 'Rank: Gym Leader.  You\'ve definitely done some battling!';
+    return 'Rank: B';
   } else if(20 < wordList.length) {
-    return 'Rank: Pokemon Professor.  You know your Pokemon!';
+    return 'Rank: A';
   }
 }
 
@@ -85,4 +83,39 @@ export function remainingOptions(wordList, dictionary) {
   } else {
     return false;
   }
+}
+
+//sourced from https://phrase.com/blog/posts/detecting-a-users-locale/
+export function getBrowserLocales(options = {}) {
+  const defaultOptions = {
+    languageCodeOnly: false,
+  };
+
+  const opt = {
+    ...defaultOptions,
+    ...options,
+  };
+
+  const browserLocales =
+    navigator.languages === undefined
+
+      ? [navigator.language]
+
+      : navigator.languages;
+
+  if (!browserLocales) {
+    return undefined;
+  }
+
+  return browserLocales.map(locale => {
+
+    const trimmedLocale = locale.trim();
+    console.log(trimmedLocale);
+    return opt.languageCodeOnly
+
+      ? trimmedLocale.split(/-|_/)[0]
+
+      : trimmedLocale;
+
+  });
 }
