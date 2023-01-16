@@ -60,13 +60,13 @@ export function checkTimer(count) {
 //instead of phrases, use image (either pokemon, trainers, or medals)
 export function scoreCritic(wordList) {
   if(wordList.length < 5) {
-    return 'bugcatcher';
+    return 'Rank: F';
   } else if(5 < wordList.length < 15) {
-    return 'Rank: Pokemon Trainer.  Not bad, keep at it!';
+    return 'Rank: C';
   } else if(15 < wordList.length) {
-    return 'Rank: Gym Leader.  You\'ve definitely done some battling!';
+    return 'Rank: B';
   } else if(20 < wordList.length) {
-    return 'scientist';
+    return 'Rank: A';
   }
 }
 
