@@ -4,8 +4,9 @@ import { useLanguage } from '../state/GameProvider';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import '../../i18n/config.js';
-import styles from '../styles/Main.scss';
 import Dropdown from './Dropdown';
+// import Tour from './Tour';
+import styles from '../styles/Main.scss';
 
 export default function Home() {
   const [source, setSource] = useState('');
@@ -34,6 +35,7 @@ export default function Home() {
   return (
     <>
       <Dropdown/>
+      {/* <Tour/> */}
       <div className={styles.splash}>
         <img src={source}/>
         <button onClick={handleClick} data-cy="play">{t('home-button')}</button>
