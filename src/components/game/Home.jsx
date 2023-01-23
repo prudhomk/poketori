@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import '../../i18n/config.js';
 import Dropdown from './Dropdown';
-// import Tour from './Tour';
+import Instruction from './Instruction';
 import styles from '../styles/Main.scss';
 
 export default function Home() {
@@ -35,10 +35,11 @@ export default function Home() {
   return (
     <>
       <Dropdown/>
-      {/* <Tour/> */}
+
       <div className={styles.splash}>
         <img src={source}/>
         <button onClick={handleClick} data-cy="play">{t('home-button')}</button>
+        <Instruction/>
       </div>
 
       {/* <div className={styles.version}>

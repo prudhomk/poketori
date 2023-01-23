@@ -49,7 +49,7 @@ module.exports = {
         },
       },
       {
-        test: /\.scss$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           {
             loader: 'style-loader',
@@ -61,9 +61,6 @@ module.exports = {
               modules: true,
               importLoaders: 1,
             },
-          },
-          {
-            loader: 'sass-loader',
           },
           {
             loader: 'postcss-loader',
@@ -78,6 +75,7 @@ module.exports = {
               },
             },
           },
+          'sass-loader'
         ],
       },
       {
