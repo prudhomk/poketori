@@ -1,6 +1,7 @@
 {
   "title": "Poketori",
   "home-button": "Play",
+  "feedback-button": "Feedback",
   "hint": "There are",
   "hint2": "pokemon remaining.",
   "hint-button": "Need a hint?",
