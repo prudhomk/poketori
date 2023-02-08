@@ -24,7 +24,7 @@ body, html {
   }
 
   button {
-    background-color: rgb(255, 203, 5);
+    background-color: rgb(255, 222, 0);
     border-radius: 20px;
     font-size: 25px;
     width: 150px;
@@ -36,7 +36,32 @@ body, html {
   }
 
   button:active {
-    background-color: rgb(215, 204, 144);
+    background-color: rgb(244, 227, 131);
+    box-shadow: 0 5px rgb(54, 28, 3);
+    transform: translateY(4px);
+  }
+}
+
+.feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    background-color: white;
+    border-radius: 20px;
+    font-size: 25px;
+    width: 200px;
+    height: 70px;
+    cursor: pointer;
+    box-shadow: 0 6px rgb(54, 28, 3);
+    margin: 15px;
+    color: black;
+  }
+
+  button:active {
+    background-color: rgb(180, 180, 176);
     box-shadow: 0 5px rgb(54, 28, 3);
     transform: translateY(4px);
   }
@@ -82,7 +107,7 @@ body, html {
     }
 
     button {
-      background-color: rgb(255, 203, 5);
+      background-color: rgb(255, 222, 0);
       border-radius: 20px;
       font-size: 25px;
       width: 150px;
@@ -90,10 +115,36 @@ body, html {
       cursor: pointer;
       box-shadow: 0 6px rgb(54, 28, 3);
       margin: 15px;
+      color: black;
     }
 
     button:active {
-      background-color: rgb(215, 204, 144);
+      background-color: rgb(244, 227, 131);
+      box-shadow: 0 5px rgb(54, 28, 3);
+      transform: translateY(4px);
+    }
+  }
+
+  .feedback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      background-color: white;
+      border-radius: 20px;
+      font-size: 25px;
+      width: 200px;
+      height: 70px;
+      cursor: pointer;
+      box-shadow: 0 6px rgb(54, 28, 3);
+      margin: 15px;
+      color: black;
+    }
+
+    button:active {
+      background-color: rgb(180, 180, 176);
       box-shadow: 0 5px rgb(54, 28, 3);
       transform: translateY(4px);
     }

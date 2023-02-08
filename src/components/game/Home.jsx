@@ -18,6 +18,10 @@ export default function Home() {
     navigate('/game');
   };
 
+  const handleFeedback = () => {
+    location.href = 'https://forms.gle/VCqiPPkE7mKcY8YY7';
+  };
+
   useEffect(() => {
     if(language === 'en') {
       setSource('en.png');
@@ -42,20 +46,9 @@ export default function Home() {
         <Instruction/>
       </div>
 
-      {/* <div className={styles.version}>
-        <h3>Version Log</h3>
-        <p>
-          Version 1.0
-          <ul>
-            <li>Five categories to choose from</li>
-            <li>Japanese compatability for Pokemon, Fruits and Vegetables, and Animals</li>
-            <li>Feedback is appreciated (fill out a form on the rules page)</li>
-          </ul>
-          Coming in Version 2.0
-          -Refined libraries
-          -Additional categories: Movies and Bands
-        </p>
-      </div> */}
+      <div className={styles.feedback}>
+        <button onClick={handleFeedback} data-cy="feedback">{t('feedback-button')}</button>
+      </div>
     </>
   );
 }
